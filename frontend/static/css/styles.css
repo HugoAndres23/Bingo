@@ -1,0 +1,111 @@
+:root {
+  --background_image: url("../img/background.svg");
+  --background_light: #f4f4f4;
+  --background_dark: #333;
+  --typography_color: #D2A214;
+  --white: #fff;
+  --dark_blue: #0b0a2e;
+  --yellow: ##ffb627;
+  --blue: #3366cc;
+  --red: #e41414;
+}
+
+@font-face {
+  font-family: 'REWARD-PERSONAL';
+  src: url('../fonts/REWARD-PERSONAL.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TAKE A SHOT PERSONAL USE';
+  src: url('../fonts/TAKE A SHOT PERSONAL USE.ttf') format('truetype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--typography_color);;
+  font-family: "REWARD-PERSONAL", Roboto, sans-serif;
+}
+
+body {
+  background: var(--background_image);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+header {
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.inicio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inicio h2{
+  font-family: 'TAKE A SHOT PERSONAL USE', Roboto, sans-serif;
+  font-size: 80px;
+  font-weight: 400;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 1.00);
+}
+
+.inicio .container{
+  display: flex;
+  gap: 10rem;
+}
+
+.card{
+  position: relative;
+  transition: 0.5s ease-out;
+  overflow: hidden;
+}
+
+.card img{
+  transition: 0.5s ease-out;
+}
+
+.card-button {
+  transform: translate(0%, 85%);
+  position: absolute;
+  bottom: 8%;
+  opacity: 0;
+  border-radius: 1rem;
+  background-color: #C4A36F;
+  color: #17140F;
+  font-size: 2rem;
+  padding: .5rem 1rem;
+  transition: 0.3s ease-out;
+}
+
+.oneplayer .card-button {
+  left: 23%;
+}
+
+.twoplayer .card-button {
+  right: 23%;
+}
+
+.card:hover{
+  cursor: pointer;
+  border-color: #000;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card:hover img {
+  scale: 1.05;
+}
+
+.card:hover .card-button {
+  transform: translate(0%, 10%);
+  cursor: pointer;
+  opacity: 1;
+}

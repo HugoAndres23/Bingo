@@ -1,5 +1,5 @@
 # APLICACIÓN BINGO
-Clonar repositorio: "git clone" ó descargar ZIP
+Clonar repositorio: "git clone git@github.com:HugoAndres23/Bingo.git" ó descargar ZIP
 
 # PASO 1:
 Abrir la terminal en la carpeta del proyecto y crear ambiente de python usando el siguiente comando: "python -m venv env"
