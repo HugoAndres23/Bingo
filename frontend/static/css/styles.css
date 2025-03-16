@@ -1,7 +1,7 @@
 :root {
   --background_image: url("../img/background.svg");
   --background_light: #f4f4f4;
-  --background_dark: #333;
+  --background_dark: #262626;
   --typography_color: #D2A214;
   --white: #fff;
   --dark_blue: #0b0a2e;
@@ -38,6 +38,22 @@ body {
   background-size: cover;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.fd-column {
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.padding-32 {
+  padding: 32px;
+}
+
 header {
   color: white;
   padding: 10px 0;
@@ -48,7 +64,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 .inicio h2{
@@ -97,7 +112,7 @@ header {
 .card:hover{
   cursor: pointer;
   border-color: #000;
-  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.534);
 }
 
 .card:hover img {
@@ -121,7 +136,7 @@ header {
   width: 100%;
   max-width: 725px;
   border-radius: 50px;
-  background: #00000079;
+  background: #000000cc;
   padding-bottom: 24px;
 }
 
@@ -174,4 +189,37 @@ header {
 .item {
   width: 100px;
   height: 100px;
+}
+
+.wild {
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s ease-out;
+}
+
+.wild:active {
+  opacity: 1;
+}
+
+.generar {
+  position: absolute;
+  bottom: 10%;
+  background-color: var(--background_dark);
+  cursor: pointer;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 3px;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+}
+
+.generar .svg {
+  fill: #fff;
+  transition: all 0.5s ease;
+}
+
+.generar:hover .svg {
+  fill: #699773;
 }

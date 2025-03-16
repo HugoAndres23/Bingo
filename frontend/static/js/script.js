@@ -20,7 +20,9 @@ window.onload = function() {
 };
 
 document.addEventListener('click', function(e) {
-  if (e.target.closest('.oneplayer') || e.target.closest('.twoplayer'))
+  if (e.target.closest('.oneplayer') || e.target.closest('.twoplayer')) {
     var jugadores = e.target.closest('.oneplayer') ? 1 : 2;
     cargarVista('juego');
+    document.getElementById('logo').style.width = '12%';
+  }
 });
