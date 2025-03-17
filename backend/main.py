@@ -1,8 +1,9 @@
 from fastapi import FastAPI
-from routes import home
+from controllers.bingo_controller import router
 
-app = FastAPI(
-    title='BINGO'
-)
+app = FastAPI()
+app.include_router(router)
 
-app.include_router(home.router, tags=["Login"])
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
