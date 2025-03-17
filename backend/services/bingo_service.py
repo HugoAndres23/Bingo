@@ -51,7 +51,8 @@ def mark_number_in_card(number):
     global bingo_card
     for row in bingo_card:
         for i in range(len(row)):
-            if row[i] == number:
+            if row[i] == str(number):
+                print(f"Valor: {row[i]}, Tipo: {type(row[i])}, Número: {number}, Tipo: {type(number)}")
                 row[i] = "X"
 
 def get_card_status():
