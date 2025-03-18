@@ -1,10 +1,9 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import APIRouter
 from services.bingo_service import (
     generate_bingo_card, draw_new_number, reset_game, get_game_status,
     get_card_status, check_minibingo, check_bingo
 )
 
-app = FastAPI()
 router = APIRouter()
 
 @router.get("/generate-card")
@@ -38,9 +37,3 @@ def reset_game_endpoint():
 @router.get("/game-status")
 def game_status():
     return {"called_numbers": get_game_status()}
-
-app.include_router(router)
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
