@@ -10,6 +10,7 @@ document.addEventListener('click', function(e) {
     const players = e.target.closest('.oneplayer') ? 1 : 2;
     loadView('juego');
     document.getElementById('logo').style.width = '12%';
+    resetGame();
     var card = getCard();
     showCard(card);
   }

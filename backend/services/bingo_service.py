@@ -1,11 +1,10 @@
 import numpy as np
 from nn_random_generator import generate_uniform_random_number
 
-# Almacenar números generados
 called_numbers = set()
 bingo_card = None
+minibingos_registrados = set()
 
-# Mapeo de números a letras
 BINGO_MAPPING = {
     "B": list(range(1, 16)),
     "I": list(range(16, 31)),
@@ -21,13 +20,18 @@ def get_bingo_letter(number):
     return ""
 
 def generate_bingo_card():
-    global bingo_card
+    global bingo_card, minibingos_registrados
     card = []
     for key in BINGO_MAPPING:
-        column = np.random.choice(BINGO_MAPPING[key], size=5, replace=False).tolist()
+        column = []
+        while len(column) < 5:
+            num = generate_uniform_random_number()
+            if num in BINGO_MAPPING[key] and num not in column:
+                column.append(num)
         card.append(column)
-    card[2][2] = "FREE"  # Espacio libre en el centro
+    card[2][2] = "FREE" 
     bingo_card = np.array(card).T.tolist()
+    minibingos_registrados.clear() 
     return bingo_card
 
 def draw_new_number():
@@ -59,21 +63,25 @@ def get_card_status():
     return bingo_card
 
 def check_minibingo():
-    for row in bingo_card:
-        if all(cell == "X" or cell == "FREE" for cell in row):
+    global minibingos_registrados
+    
+    for i in range(5):
+        if i not in minibingos_registrados and all(cell == "X" or cell == "FREE" for cell in bingo_card[i]):
+            minibingos_registrados.add(i)
             return True
-    for col in range(5):
-        if all(row[col] == "X" or row[col] == "FREE" for row in bingo_card):
+        
+        if (i + 5) not in minibingos_registrados and all(bingo_card[row][i] == "X" or bingo_card[row][i] == "FREE" for row in range(5)):
+            minibingos_registrados.add(i + 5)
             return True
-    return False
 
 def check_bingo():
     return all(all(cell == "X" or cell == "FREE" for cell in row) for row in bingo_card)
 
 def reset_game():
-    global called_numbers, bingo_card
+    global called_numbers, bingo_card, minibingos_registrados
     called_numbers.clear()
     bingo_card = None
+    minibingos_registrados.clear()
 
 def get_game_status():
     return sorted(list(called_numbers))

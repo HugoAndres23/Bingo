@@ -53,8 +53,24 @@ export async function showCard(cardPromise) {
 }
 
 export async function showNumber(numberPromise) {
-    var number = await numberPromise;
-    console.log(number);
+    const { number, letter } = await numberPromise;
+
+    const imagenNumero = document.getElementById('imagenNumeroExtraido');
+    if (imagenNumero) {
+        imagenNumero.src = `../static/img/nums/${number}.webp`;
+    } else {
+        console.error("No se encontró el contenedor de la imagen del número extraído.");
+    }
+
+    document.querySelectorAll('.bingo-letter').forEach(letterEl => {
+        letterEl.classList.remove('active');
+    });
+
+    const letterClass = `.div${letter}`;
+    const letterElement = document.querySelector(letterClass);
+    if (letterElement) {
+        letterElement.classList.add('active');
+    }
 }
 
 export async function showBinguito(binguitoPromise) {
@@ -62,7 +78,7 @@ export async function showBinguito(binguitoPromise) {
     var binguitoDiv = document.querySelector('.binguito');
     if (binguito["minibingo"]) {
         binguitoDiv.classList.add('active');
-        setTimeout(() => binguitoDiv.classList.remove('active'), 9000)
+        setTimeout(() => binguitoDiv.classList.remove('active'), 3000)
     }
 }
 
