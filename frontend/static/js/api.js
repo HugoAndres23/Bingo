@@ -32,40 +32,36 @@ export async function getNumber() {
         return error;
     }
 }
-    // async getMe(token) {
-    //     return axios.get(`${apiUrl}/me`, authHeaders(token));
-    // },
-    // async new_vote(token, data) {
-    //     return await axios.post(`${apiUrl}/vote`, data, authHeaders(token));
-    // },
-    // async getcandidates(token) {
-    //     try {
-    //     let response = await axios.get(
-    //         `${apiUrl}/candidates`,
-    //         authHeaders(token)
-    //     );
-    //     return response.data;
-    //     } catch (error) {
-    //     throw new Error("Error al obtener candidatos: " + error.message);
-    //     }
-    // },
-    // async getcandidatures(token) {
-    //     try {
-    //     let response = await axios.get(
-    //         `${apiUrl}/candidatures`,
-    //         authHeaders(token)
-    //     );
-    //     return response.data;
-    //     } catch (error) {
-    //     throw new Error("Error al obtener candidatos: " + error.message);
-    //     }
-    // },
-    // async getcandidate(token, id) {
-    //     return axios.get(`${apiUrl}/users/${id}`, authHeaders(token));
-    // },
-    // async getvotes(token) {
-    //     return axios.get(`${apiUrl}/votes`, authHeaders(token));
-    // },
-    // async getMain(token) {
-    //     return axios.get(`${apiUrl}/main`, authHeaders(token));
-    // },
+
+export async function checkBinguito() {
+    try {
+        let response = await axios.get(`${BASE_URL}/check-minibingo`);
+        if (response) {
+            return response.data;
+        }
+    } catch (error) {
+        return error;
+    }
+}
+
+export async function checkBingo() {
+    try {
+        let response = await axios.get(`${BASE_URL}/check-bingo`);
+        if (response) {
+            return response.data;
+        }
+    } catch (error) {
+        return error;
+    }
+}
+
+export async function resetGame() {
+    try {
+        let response = await axios.get(`${BASE_URL}/reset-game`);
+        if (response) {
+            return response.data;
+        }
+    } catch (error) {
+        return error;
+    }
+}

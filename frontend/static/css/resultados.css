@@ -1,0 +1,38 @@
+.reset {
+    position: absolute;
+    top: 56%;
+    left: 42%;
+    border-radius: 1rem;
+    background-color: #C4A36F;
+    color: #17140F;
+    font-size: 2rem;
+    padding: .5rem 1rem;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.reset:hover {
+    background: #b97d4b;
+    border-color: #6b3e1e;
+    transform: scale(1.05);
+}
+
+.reset::before,
+.reset::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #6b3e1e 30%, #2e1609 70%);
+    position: absolute;
+    border-radius: 50%;
+}
+
+.reset::before {
+    top: 5px;
+    left: 5px;
+}
+
+.reset::after {
+    bottom: 5px;
+    right: 5px;
+}

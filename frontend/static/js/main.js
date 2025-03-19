@@ -1,5 +1,5 @@
-import { showCard, loadView, showNumber } from './domUtils.js';
-import { getCard, getStatus, getNumber } from './api.js';
+import { showCard, loadView, showNumber, showBinguito, showBingo } from './domUtils.js';
+import { getCard, getStatus, getNumber, checkBinguito, checkBingo, resetGame} from './api.js';
 
 window.onload = function() {
   loadView('inicio');
@@ -18,8 +18,15 @@ document.addEventListener('click', function(e) {
     var number = getNumber();
     showNumber(number);
     setTimeout(() => {
+      showBingo(checkBingo());
       var card = getStatus();
       showCard(card);
-    }, 10);
+      showBinguito(checkBinguito());
+    }, 150);
+  }
+
+  if (e.target.closest('.reset')) {
+    resetGame();
+    window.location.reload()
   }
 });
