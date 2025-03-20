@@ -224,3 +224,45 @@
   transform: scale(1.2);
   transition: transform 0.2s ease-in-out;
 }
+
+.contador-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.generar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.generar img {
+  width: 100px; /* Ajusta el tamaño del revólver */
+  transition: transform 0.1s ease-in-out;
+}
+
+.generar:active img {
+  transform: rotate(-10deg) scale(1.1); /* Pequeña inclinación para el efecto de disparo */
+}
+
+#contador {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffcc00; /* Dorado estilo viejo oeste */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: 'Western', serif;
+  background: #8B4513; /* Marrón madera */
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid #5a2d0c;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.contador-anim {
+  transform: scale(1.2);
+}

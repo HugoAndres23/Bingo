@@ -5,6 +5,8 @@ window.onload = function() {
   loadView('inicio');
 };
 
+let contador = 0;
+
 document.addEventListener('click', function(e) {
   if (e.target.closest('.oneplayer') || e.target.closest('.twoplayer')) {
     const players = e.target.closest('.oneplayer') ? 1 : 2;
@@ -16,6 +18,13 @@ document.addEventListener('click', function(e) {
   }
 
   if (e.target.closest('.generar')) {
+    contador++;
+    document.getElementById('contador').textContent = contador;
+
+    // Efecto de crecimiento al actualizar el número
+    document.getElementById('contador').classList.add("contador-anim");
+    setTimeout(() => document.getElementById('contador').classList.remove("contador-anim"), 200);
+
     var number = getNumber();
     showNumber(number);
     setTimeout(() => {
