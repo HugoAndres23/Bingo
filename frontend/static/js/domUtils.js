@@ -73,12 +73,13 @@ export async function showNumber(numberPromise) {
     }
 }
 
-export async function showBinguito(binguitoPromise) {
+export async function showBinguito(binguitoPromise, number) {
     var binguito = await binguitoPromise;
     var binguitoDiv = document.querySelector('.binguito');
     if (binguito["minibingo"]) {
+        document.getElementById('mensaje').textContent = "EN " + number + " INTENTOS";
         binguitoDiv.classList.add('active');
-        setTimeout(() => binguitoDiv.classList.remove('active'), 3000)
+        setTimeout(() => binguitoDiv.classList.remove('active'), 5000)
     }
 }
 

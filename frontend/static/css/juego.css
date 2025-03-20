@@ -266,3 +266,22 @@
 .contador-anim {
   transform: scale(1.2);
 }
+
+#mensaje {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #ffcc00; /* Dorado estilo viejo oeste */
+  font-family: 'Western', serif;
+  padding: 10px 20px;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+}
+
+#mensaje-binguito.mostrar {
+  opacity: 1;
+  visibility: visible;
+}
+
+.oculto {
+  display: none;
+}

@@ -6,6 +6,7 @@ window.onload = function() {
 };
 
 let contador = 0;
+let primerBinguitoMostrado = false; 
 
 document.addEventListener('click', function(e) {
   if (e.target.closest('.oneplayer') || e.target.closest('.twoplayer')) {
@@ -19,11 +20,13 @@ document.addEventListener('click', function(e) {
 
   if (e.target.closest('.generar')) {
     contador++;
-    document.getElementById('contador').textContent = contador;
+    const contadorElemento = document.getElementById('contador');
+    
+        contadorElemento.textContent = contador;
 
-    // Efecto de crecimiento al actualizar el número
-    document.getElementById('contador').classList.add("contador-anim");
-    setTimeout(() => document.getElementById('contador').classList.remove("contador-anim"), 200);
+        // Animación al actualizar el número
+        contadorElemento.classList.add("contador-anim");
+        setTimeout(() => contadorElemento.classList.remove("contador-anim"), 200);
 
     var number = getNumber();
     showNumber(number);
@@ -31,7 +34,7 @@ document.addEventListener('click', function(e) {
       showBingo(checkBingo());
       var card = getStatus();
       showCard(card);
-      showBinguito(checkBinguito());
+      showBinguito(checkBinguito(), contador);
     }, 150);
   }
 
