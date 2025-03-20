@@ -1,3 +1,5 @@
+import { contador } from './main.js';
+
 export async function loadView(view) {
     try {
         const response = await fetch(`views/${view}.html`);
@@ -75,11 +77,16 @@ export async function showNumber(numberPromise) {
 
 export async function showBinguito(binguitoPromise, number) {
     var binguito = await binguitoPromise;
-    var binguitoDiv = document.querySelector('.binguito');
     if (binguito["minibingo"]) {
-        document.getElementById('mensaje').textContent = "EN " + number + " INTENTOS";
+        var binguitoDiv = document.querySelector('.binguito');
+        var minibingo_contador = document.getElementById('minibingo_contador');
+        var minibingo_title = document.querySelector('.rondas_container').getElementsByTagName("H2")[0];
         binguitoDiv.classList.add('active');
-        setTimeout(() => binguitoDiv.classList.remove('active'), 5000)
+        setTimeout(() => binguitoDiv.classList.remove('active'), 3000)
+        if(!minibingo_contador.textContent) {
+            minibingo_contador.textContent = contador;
+            minibingo_title.classList.add('active');
+        }
     }
 }
 
@@ -89,5 +96,9 @@ export async function showBingo(bingoPromise) {
         loadView('resultados');
         document.getElementById('logo').remove();
         document.body.style.backgroundImage = "url('../static/img/bingo.png')";
+        setTimeout(() => {
+            var bingo_contador = document.getElementById('bingo_contador');
+            bingo_contador.textContent = contador;
+        }, 150)
     }
 }

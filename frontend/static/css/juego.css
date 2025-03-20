@@ -220,14 +220,7 @@
 
 .numero-extraido {
   position: absolute;
-  right: 24rem;
-}
-
-.contador-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  position: relative;
+  right: 15rem;
 }
 
 .generar {
@@ -237,49 +230,39 @@
   transition: transform 0.1s ease-in-out;
 }
 
-.generar img {
-  width: 100px;
-  transition: transform 0.1s ease-in-out;
+.rondas_container {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 10rem;
+  right: 10rem;
 }
 
-.generar:active img {
-  transform: rotate(-10deg) scale(1.1);
+.rondas_container h1 {
+  font-family: 'Albertson', Roboto, sans-serif;
+  font-size: 80px;
+  font-weight: 100;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 1.00);
 }
 
-#contador {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #ffcc00;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  font-family: 'Western', serif;
-  background: #8B4513;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 3px solid #5a2d0c;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-  transform: scale(1);
-  transition: transform 0.2s ease-in-out;
+.rondas_container h2 {
+  font-family: 'Albertson', Roboto, sans-serif;
+  font-size: 40px;
+  font-weight: 100;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 1.00);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out;
 }
 
-.contador-anim {
-  transform: scale(1.2);
-}
-
-#mensaje {
-  font-size: 5rem;
-  font-weight: bold;
-  color: #ffcc00; /* Dorado estilo viejo oeste */
-  font-family: 'Western', serif;
-  padding: 10px 20px;
-  transform: scale(1);
-  transition: transform 0.2s ease-in-out;
-}
-
-#mensaje-binguito.mostrar {
+.rondas_container h2.active {
   opacity: 1;
-  visibility: visible;
 }
 
-.oculto {
-  display: none;
+.rondas_container h1 span{
+  font-family: 'Albertson', Roboto, sans-serif;
+}
+
+.rondas_container h2 span{
+  font-family: 'Albertson', Roboto, sans-serif;
 }

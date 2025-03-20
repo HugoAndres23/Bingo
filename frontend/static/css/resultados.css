@@ -1,7 +1,7 @@
 .reset {
     position: absolute;
-    top: 56%;
-    left: 42%;
+    bottom: 30%;
+    right: 40rem;
     border-radius: 1rem;
     background-color: #C4A36F;
     color: #17140F;
@@ -35,4 +35,26 @@
 .reset::after {
     bottom: 5px;
     right: 5px;
+}
+
+.bingo_ronda {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    top: 50%;
+    right: 35%;
+    background: #000000cc;
+    padding: 16px;
+}
+
+.bingo_ronda h1 {
+    font-family: 'Albertson', Roboto, sans-serif;
+    font-size: 80px;
+    font-weight: 100;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1.00);
+}
+
+.bingo_ronda h1 span{
+    font-family: 'Albertson', Roboto, sans-serif;
 }

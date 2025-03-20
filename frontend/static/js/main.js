@@ -5,8 +5,7 @@ window.onload = function() {
   loadView('inicio');
 };
 
-let contador = 0;
-let primerBinguitoMostrado = false; 
+export var contador = 0;
 
 document.addEventListener('click', function(e) {
   if (e.target.closest('.oneplayer') || e.target.closest('.twoplayer')) {
@@ -20,18 +19,11 @@ document.addEventListener('click', function(e) {
 
   if (e.target.closest('.generar')) {
     contador++;
-    const contadorElemento = document.getElementById('contador');
-    
-        contadorElemento.textContent = contador;
-
-        // Animación al actualizar el número
-        contadorElemento.classList.add("contador-anim");
-        setTimeout(() => contadorElemento.classList.remove("contador-anim"), 200);
-
+    document.getElementById('contador').textContent = contador;
     var number = getNumber();
     showNumber(number);
     setTimeout(() => {
-      showBingo(checkBingo());
+      showBingo(checkBingo(), contador);
       var card = getStatus();
       showCard(card);
       showBinguito(checkBinguito(), contador);
