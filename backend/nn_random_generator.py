@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import time
 
 # Parámetros
 num_samples = 100000
@@ -31,7 +32,8 @@ optimizer = optim.Adam(model.parameters(), lr=0.01)
 
 data = generate_training_data(num_samples, min_val, max_val)
 labels = (data - min_val).long()
-inputs = torch.rand((num_samples, 1))
+timestamps = torch.tensor([(int(time.time() * 1000) % 1000) / 1000 for _ in range(num_samples)], dtype=torch.float32).view(num_samples, 1)
+inputs = timestamps
 
 epochs = 500
 for epoch in range(epochs):
@@ -46,7 +48,8 @@ for epoch in range(epochs):
 # Función para generar un número aleatorio
 def generate_uniform_random_number():
     with torch.no_grad():
-        input_noise = torch.rand((1, 1))
+        timestamp = time.time()
+        input_noise = torch.tensor([[timestamp % 1]], dtype=torch.float32)
         output_probs = torch.softmax(model(input_noise), dim=1)
         random_number = torch.multinomial(output_probs, 1).item() + min_val
         return random_number
